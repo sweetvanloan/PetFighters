@@ -1,0 +1,13 @@
+class Pet {
+private:
+    int health;
+    int happiness;
+    int level;
+
+public:
+    Pet() : health(100), happiness(100), level(1) {}
+    void feed();
+    void play();
+    void train();
+    // Need to add other methods
+};
