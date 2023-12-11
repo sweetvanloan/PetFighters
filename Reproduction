@@ -1,0 +1,15 @@
+class Pet {
+    // Existing code...
+
+    // Static method for reproduction
+    static Pet reproduce(const Pet& parent1, const Pet& parent2) {
+        if (parent1.getGender() != parent2.getGender() && parent1.health > 50 && parent2.health > 50) {
+            // Logic to create a new Pet
+            std::string babyName = "BabyPet"; // You can add logic to generate or choose a name
+            Gender babyGender = static_cast<Gender>(rand() % 2); // Random gender assignment
+            return Pet(babyName, babyGender);
+        }
+        // Return a default Pet or handle the case where reproduction is not possible
+        return Pet("Invalid", Gender::Male);
+    }
+};
