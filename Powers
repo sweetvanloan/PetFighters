@@ -1,0 +1,66 @@
+#include <string>
+#include <iostream>
+
+enum class ElementType {
+    Fire,
+    Water,
+    Earth,
+    Air,
+    // Add more elements as needed
+};
+
+class Pet {
+private:
+    std::string name;
+    int health;
+    int happiness;
+    int level;
+    ElementType element;
+
+public:
+    // Constructor
+    Pet(std::string petName = "Unnamed Pet", ElementType petElement = ElementType::Fire)
+        : name(petName), health(100), happiness(100), level(1), element(petElement) {}
+
+    // Name-related methods...
+    void setName(const std::string& newName) { name = newName; }
+    std::string getName() const { return name; }
+
+    // Elemental type setter and getter
+    void setElement(ElementType newElement) { element = newElement; }
+    ElementType getElement() const { return element; }
+
+    // Elemental ability methods
+    void useElementalAttack();
+    void useElementalDefense();
+
+    // Other methods...
+    void feed();
+    void play();
+    void train();
+    // ...
+};
+
+void Pet::useElementalAttack() {
+    std::cout << name << " uses ";
+    switch (element) {
+        case ElementType::Fire:
+            std::cout << "Flame Burst!\n";
+            break;
+        case ElementType::Water:
+            std::cout << "Water Cannon!\n";
+            break;
+        case ElementType::Earth:
+            std::cout << "Rock Slide!\n";
+            break;
+        case ElementType::Air:
+            std::cout << "Gale Force!\n";
+            break;
+        // Add more cases for other elements
+    }
+}
+
+void Pet::useElementalDefense() {
+    // Similar implementation to useElementalAttack()
+    // with defensive moves based on the pet's element
+}
