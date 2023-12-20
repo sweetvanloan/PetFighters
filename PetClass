@@ -20,3 +20,31 @@ public:
 
     // Other methods...
 };
+
+// working on HP
+#include "Pet.h"
+
+// Constructor and other existing methods...
+
+void Pet::increaseHP(int amount) {
+    currentHP = std::min(currentHP + amount, enhancedMaxHP);
+}
+
+void Pet::decreaseHP(int amount) {
+    currentHP = std::max(currentHP - amount, 0);
+}
+
+void Pet::enhanceMaxHP(int amount) {
+    enhancedMaxHP += amount;
+    if (enhancedMaxHP > baseMaxHP) {
+        baseMaxHP = enhancedMaxHP;
+    }
+}
+
+int Pet::getCurrentHP() const {
+    return currentHP;
+}
+
+int Pet::getMaxHP() const {
+    return enhancedMaxHP;
+}
