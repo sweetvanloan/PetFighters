@@ -13,7 +13,7 @@ public:
     void addPet(const Pet& newPet);
     void addToFavorites(const std::string& petName);
     void removeFromFavorites(const std::string& petName);
-    // Other game methods...
+    // Other game-related methods...
 };
 
 #endif
