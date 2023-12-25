@@ -5,7 +5,7 @@
 #include "Item.h"
 
 enum class ElementType {
-    Fire, Water, Earth, Air // Extend as needed
+    Fire, Water, Earth, Air, Wind, Ice, Lightening // Extend as needed
 };
 
 class Pet {
