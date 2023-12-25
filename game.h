@@ -1,19 +1,17 @@
 #ifndef GAME_H
 #define GAME_H
 
-#include "Pet.h"
+#include "Player.h"
 #include <vector>
 
 class Game {
 private:
-    std::vector<Pet> pets;
-    std::vector<Pet*> favorites;
+    std::vector<Player> players;
 
 public:
-    void addPet(const Pet& newPet);
-    void addToFavorites(const std::string& petName);
-    void removeFromFavorites(const std::string& petName);
-    // Other game-related methods...
+    void addPlayer(const Player& player);
+    void startGame();
+    // Other game methods...
 };
 
 #endif
