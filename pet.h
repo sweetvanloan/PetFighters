@@ -5,19 +5,15 @@
 #include "Item.h"
 
 enum class ElementType {
-    Fire, Water, Earth, Air, Wind, Ice, Lightening // Extend as needed
+    Fire, Water, Earth, Air, Lightning, Wind, Ice
 };
 
 class Pet {
 private:
     std::string name;
-    int health;
-    int happiness;
-    int level;
+    int health, happiness, level;
     ElementType element;
-    int currentHP;
-    int baseMaxHP;
-    int enhancedMaxHP;
+    int currentHP, baseMaxHP, enhancedMaxHP;
 
 public:
     Pet(const std::string& petName = "Unnamed Pet", ElementType petElement = ElementType::Fire);
@@ -38,6 +34,10 @@ public:
     void useElementalDefense() const;
 
     void useItem(const Item& item);
+
+    void increaseHappiness(int amount);
+    void decreaseHappiness(int amount);
+    void updateStatus();
 };
 
-#endif 
+#endif
