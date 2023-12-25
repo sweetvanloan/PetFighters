@@ -1,8 +1,8 @@
 #include "Pet.h"
-#include <iostream>
+#include <algorithm>
 
 Pet::Pet(const std::string& petName, ElementType petElement)
-    : name(petName), health(100), happiness(100), level(1), element(petElement),
+    : name(petName), health(100), happiness(50), level(1), element(petElement),
       currentHP(100), baseMaxHP(100), enhancedMaxHP(100) {}
 
 void Pet::setName(const std::string& newName) {
@@ -45,19 +45,21 @@ int Pet::getMaxHP() const {
 }
 
 void Pet::useElementalAttack() const {
-    // Implementation of elemental attack
+    // Implement elemental attack based on pet's element
 }
 
 void Pet::useElementalDefense() const {
-    // Implementation of elemental defense
+    // Implement elemental defense based on pet's element
 }
 
-void Pet::useItem(const Item& item) {
-    int hpIncrease = item.getHPIncrease();
-    if (hpIncrease == -1) {
-        currentHP = enhancedMaxHP; // Full HP for yellow gem
-    } else {
-        increaseHP(hpIncrease);
-    }
+void Pet::increaseHappiness(int amount) {
+    happiness = std::min(happiness + amount, 100);
 }
- 
+
+void Pet::decreaseHappiness(int amount) {
+    happiness = std::max(happiness - amount, 0);
+}
+
+void Pet::updateStatus() {
+    // Implement status updates based on happiness
+}
