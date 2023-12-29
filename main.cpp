@@ -15,3 +15,8 @@ int main() {
     // Continue with game setup and loop...
     return 0;
 }
+
+int main() {
+    // Game setup and main loop with pet trading functionality
+    return 0;
+}
