@@ -23,3 +23,8 @@ void Player::setupBattleTeam(const std::vector<int>& petIndices) {
 void Player::interactWithPet(const std::string& petName, int actionType) {
     // Implement interaction logic...
 }
+
+void Player::tradePet(Player& otherPlayer, const std::string& yourPetName, const std::string& theirPetName) {
+    // Implement pet trading logic, including pet name and owner updates
+}
+
