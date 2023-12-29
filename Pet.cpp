@@ -1,6 +1,7 @@
 #include "Pet.h"
 #include <algorithm>
 
+
 // Constructor
 Pet::Pet(const std::string& petName, ElementType petElement)
     : name(petName), health(100), happiness(50), level(1), element(petElement),
@@ -93,3 +94,13 @@ void Pet::decreaseHappiness(int amount) {
 void Pet::updateStatus() {
     // Implement status updates based on happiness
 }
+
+void Pet::changeName(const std::string& newName, const std::string& ownerName) {
+    history.push_back({name, ownerName});
+    name = newName;
+}
+
+const std::vector<PetHistory>& Pet::getHistory() const {
+    return history;
+}
+
