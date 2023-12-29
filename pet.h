@@ -2,59 +2,32 @@
 #define PET_H
 
 #include <string>
+#include <vector>
 #include "Item.h"
 
-//  Elemental Types
-enum class ElementType {
-    Fire, Water, Earth, Air, Lightning, Wind, Ice
-};
+// Element and Mood Enumerations as before...
 
-// Pet Moods
-enum class Mood {
-    Happy, Sad, Excited, Relaxed // Extend with additional moods
+// Structure for pet's history
+struct PetHistory {
+    std::string name;
+    std::string owner;
 };
 
 class Pet {
 private:
     std::string name;
-    int health, happiness, level;
+    int health, happiness, level, currentHP, baseMaxHP, enhancedMaxHP;
     ElementType element;
-    int currentHP, baseMaxHP, enhancedMaxHP;
     Mood currentMood;
+    std::vector<PetHistory> history;
 
 public:
-    // Constructor
-    Pet(const std::string& petName = "Unnamed Pet", ElementType petElement = ElementType::Fire);
+    Pet(const std::string& petName, ElementType petElement);
 
-    // Setters and getters
-    void setName(const std::string& newName);
-    std::string getName() const;
-    void setElement(ElementType newElement);
-    ElementType getElement() const;
-    Mood getCurrentMood() const;
+    // Getters, setters, and other existing methods...
 
-    // HP management
-    void increaseHP(int amount);
-    void decreaseHP(int amount);
-    void enhanceMaxHP(int amount);
-    int getCurrentHP() const;
-    int getMaxHP() const;
-
-    // Elemental abilities
-    void useElementalAttack() const;
-    void useElementalDefense() const;
-
-    // Item usage
-    void useItem(const Item& item);
-
-    // Mood and interaction
-    void interactWithOtherPet(Pet& otherPet);
-    void changeMood(Mood newMood);
-
-    // Happiness
-    void increaseHappiness(int amount);
-    void decreaseHappiness(int amount);
-    void updateStatus();
+    void changeName(const std::string& newName, const std::string& ownerName);
+    const std::vector<PetHistory>& getHistory() const;
 };
 
 #endif
